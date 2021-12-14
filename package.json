@@ -4,10 +4,10 @@
   "description": "Test",
   "main": "index.js",
   "scripts": {
-    "start": "BROWSERSLIST_ENV=evergreen webpack serve --open --config webpack.dev.js",
-    "start:fallback": "BROWSERSLIST_ENV=defaults webpack serve --open --config webpack.dev.js",
-    "build": "BROWSERSLIST_ENV=evergreen webpack --config webpack.prod.js",
-    "build:fallback": "BROWSERSLIST_ENV=defaults webpack --config webpack.prod.js",
+    "start": "webpack serve --open --config webpack.dev.js",
+    "start:old": "BROWSERSLIST_ENV=old webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "build:old": "BROWSERSLIST_ENV=old webpack --config webpack.prod.js",
     "lint:editorconfig": "editorconfig-checker",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -53,22 +53,8 @@
     "webpack-merge": "^5.8.0"
   },
   "browserslist": {
-    "defaults": [
-      "last 2 versions",
-      "Safari >= 10",
-      "iOS >= 10",
-      "not ie <= 10",
-      "> 1%"
-    ],
-    "evergreen": [
-      "last 2 Chrome versions",
-      "last 2 ChromeAndroid versions",
-      "last 2 Firefox versions",
-      "last 2 FirefoxAndroid versions",
-      "last 2 Safari versions",
-      "last 2 iOS versions",
-      "last 2 Edge versions",
-      "last 2 Opera versions"
+    "old": [
+      "IE 10"
     ]
   }
 }
