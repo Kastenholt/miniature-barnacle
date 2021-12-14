@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "BROWSERSLIST_ENV=evergreen webpack serve --open --config webpack.dev.js",
-    "start:fallback": "BROWSERSLIST_ENV=fallback webpack serve --open --config webpack.dev.js",
+    "start:fallback": "BROWSERSLIST_ENV=defaults webpack serve --open --config webpack.dev.js",
     "build": "BROWSERSLIST_ENV=evergreen webpack --config webpack.prod.js",
-    "build:fallback": "BROWSERSLIST_ENV=fallback npm build",
+    "build:fallback": "BROWSERSLIST_ENV=defaults webpack --config webpack.prod.js",
     "lint:editorconfig": "editorconfig-checker",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
