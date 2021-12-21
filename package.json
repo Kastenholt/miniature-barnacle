@@ -4,11 +4,8 @@
   "description": "Test",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
-    "start:old": "BROWSERSLIST_ENV=old webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "build:old": "BROWSERSLIST_ENV=old webpack --config webpack.prod.js",
-    "lint:editorconfig": "editorconfig-checker",
+    "start": "NODE_ENV=development webpack serve --open --config webpack.common.js",
+    "build": "NODE_ENV=production webpack --config webpack.common.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +30,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "babel-loader": "^8.2.3",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
     "editorconfig-checker": "^4.0.2",
     "eslint": "^8.4.1",
@@ -42,6 +40,7 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-webpack-plugin": "^3.1.1",
+    "html-webpack-multi-build-plugin": "^1.1.0",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^7.0.0",
     "react-hot-loader": "^4.13.0",
@@ -50,11 +49,23 @@
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "webpack-module-nomodule-plugin": "^1.1.1"
   },
   "browserslist": {
-    "old": [
-      "IE 10"
+    "defaults": [
+      "last 2 versions",
+      "Safari >= 10",
+      "iOS >= 10",
+      "not ie <= 10",
+      "> 1%"
+    ],
+    "evergreen": [
+      "chrome >= 96",
+      "edge >= 96",
+      "firefox >= 94",
+      "opera >= 82",
+      "safari >= 15.1"
     ]
   }
 }
